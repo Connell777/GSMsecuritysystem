@@ -53,9 +53,8 @@ def read_raw_data(addr):
 bus = smbus.SMBus(1) 	# or bus = smbus.SMBus(0) for older version boards
 Device_Address = 0x68   # MPU6050 device address
 
-
-def store_input():
-    MPU_Init()
+MPU_Init()
+def store_input():    
     while(True):
         csvfile = open('accel-data.csv', 'a')
         for count in range(50000):
@@ -71,5 +70,3 @@ def store_input():
             csvwriter.writerow([mag])
             count += 1
             sleep(.03)
-            print(mag)
-store_input()

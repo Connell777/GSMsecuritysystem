@@ -56,9 +56,6 @@ def feat(dat):
         s=s+1
     return final
 
-d =[]
-feat(d)
-
 
 
 

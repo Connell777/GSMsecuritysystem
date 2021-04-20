@@ -19,5 +19,3 @@ def buzz():
         c=c+1
         if(c>4):
             break
-    
-    

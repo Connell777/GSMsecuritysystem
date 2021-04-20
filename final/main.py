@@ -1,10 +1,11 @@
 from Features import feat
 from buzzertutorial import buzz
-from Id3 import pred
+from Id3 import train
 
 def main():
-    if(pred()):
-        buzz()  
+    while True:    
+        if(train()):
+            buzz()
 main()
     
     

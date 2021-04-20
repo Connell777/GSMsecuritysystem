@@ -204,7 +204,7 @@ def preprocess(data, encode_labels=False):
 # In[12]:
 
 def train():
-    data =pd.read_csv("/home/pi/Desktop/tudfyp/uncalread data/data/tapdatacolt.csv")
+    data =pd.read_csv("/home/pi/Desktop/tudfyp/final/data/tapdatacolt.csv")
     y = data["Result"].to_numpy()
     X = preprocess(data)
 
@@ -220,30 +220,19 @@ def train():
     clf.fit(X_train, y_train)
 
 
-    # In[41]:
+    #For training accuarcy purposes not required in final build
 
+    #print ("train accuracy = %.5f" % clf.score(X_train, y_train))
+    #print ("test accuracy = %.5f" % clf.score(X_test, y_test))
 
-    print ("train accuracy = %.5f" % clf.score(X_train, y_train))
-    print ("test accuracy = %.5f" % clf.score(X_test, y_test))
-
-
-    # In[42]:
-
-
-    for max_depth in range(15):
-        clf = ID3(max_depth=max_depth)
-        clf.fit(X_train, y_train)
-        print( max_depth, clf.score(X_test, y_test))
-
-
-def pred():
-    clf=ID3()
-    data = []
-    X_new = feat(data)
-    if(clf.predict(X_new)==[1]):
-        return True
+    #for max_depth in range(15):
+    #    clf = ID3(max_depth=max_depth)
+    #    clf.fit(X_train, y_train)
+    #    print( max_depth, clf.score(X_test, y_test))
         
-
-train()
-
-
+    data = []
+    X_new = feat(data).to_numpy()
+    #print(clf.predict(X_new))
+    if(clf.predict(X_new)==[1]):
+        print("alert")
+        return True
